@@ -1,0 +1,90 @@
+<%- include('../admininclude/head.ejs') %>
+    <div class="container-fluid">
+
+        <!-- Page Heading -->
+
+
+        <!-- DataTales Example -->
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Links
+                </h6>
+                <a href="" data-toggle="modal" data-target="#filtermodel" class="btn btn-success text-white float-right">Add new
+                </a>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>Link</th>
+                                <th>Location</th>
+                                <th>delete</th>
+
+
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                                <th>Link</th>
+                                <th>Location</th>
+                                <th>delete</th>
+                            </tr>
+                        </tfoot>
+                        <tbody>
+
+                            <%for(let doc of docs){%>
+                                <tr>
+                                    <td>
+
+                                        <%=doc.place%>
+
+                                    </td>
+                                    <td>
+                                        <%=doc.link%>
+                                    </td>
+
+
+                                    <td> <a onclick="return confirm('are you sure')" href="/controller/deleteplace/<%=doc.place%>" class="btn btn-danger">Delete</a></td>
+
+                                </tr>
+                                <%}%>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="modal fade" id="filtermodel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Add place</h5>
+                    <a class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </a>
+                </div>
+                <div class="modal-body">
+                    <form id="form1" action="/controller/link" method="POST">
+                        <div class="form-group row">
+                            <div class="col-sm-12 mb-3 mb-sm-0">
+                                <label for="">Enter place</label>
+                                <input type="text" class="form-control form-control-user" id="exampleFirstName" name="place" placeholder="place name">
+                            </div>
+                        </div>
+
+
+
+                    </form>
+
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <button class="btn btn-primary" type="submit" form="form1">Add link</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <%- include('../admininclude/end.ejs') %>

@@ -1,0 +1,53 @@
+<%- include('../admininclude/head.ejs') %>
+    <div class="container-fluid">
+
+        <!-- Page Heading -->
+
+
+        <!-- DataTales Example -->
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Send Promotional Message
+                </h6>
+
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <div class="row">
+                        <div class="col-lg-3"></div>
+                        <div class="col-lg-6">
+                            <div class="">
+                                <div>
+                                    <h1 class="h4 text-gray-900 mb-4">Send new Message</h1>
+                                    <% if (errorMessage) { %>
+                                        <p class=" mb-4 " style="color: crimson; ">
+                                            <%= errorMessage %>
+                                        </p>
+                                        <% } %>
+                                </div>
+                                <form action="/controller/sendmessage" method="POST" id="addenglish">
+                                    <label for="">Message</label>
+                                    <div class="form-group row">
+
+                                        <div class="col-sm-12 input-group">
+                                            <textarea tabindex="5" aria-required="true" required name="message" class="form-control form-control-user" id="exampleInputEmail" rows="8"> </textarea>
+                                        </div>
+
+
+                                    </div>
+
+                                    <button type="submit" form="addenglish" class="btn btn-info btn-user btn-block col-sm-12 mb-3 mb-sm-0 ">
+   Send Message
+      </button>
+                                </form>
+                                <hr>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <%- include('../admininclude/end.ejs') %>

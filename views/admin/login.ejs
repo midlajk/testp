@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html style="height: 100%;" lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.7.0/moment.min.js" type="text/javascript"></script>
+    <title>Spin Game | Admin</title>
+
+    <!-- Custom fonts for this template -->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Style+Script&family=WindSong:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="/css/sb-admin-2.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Custom styles for this page -->
+    <link href="/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.3.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+
+    <style>
+        .but {
+            float: left;
+            font-size: 12px;
+            text-decoration: none;
+            margin: 0 3px 0 0;
+            padding: 3px 10px;
+            border-radius: 3px 3px 0 0;
+            border-width: 1px 1px 0 1px;
+            border-style: solid;
+            border-color: rgb(0, 0, 0);
+            text-align: center;
+            min-width: 130px;
+        }
+        
+        .noul {
+            padding: 0;
+            list-style-type: none;
+            margin: 0;
+        }
+        
+        ul {
+            display: block;
+            list-style-type: disc;
+            margin-block-start: 1em;
+            margin-block-end: 1em;
+            margin-inline-start: 0px;
+            margin-inline-end: 0px;
+            padding-inline-start: 40px;
+        }
+        
+        ul.nav {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            padding: 6px 3px;
+            text-align: center;
+            font-size: 12px;
+        }
+        
+        .nav li {
+            display: inline;
+            margin: 0 15px;
+        }
+        
+        .nav,
+        .nav a {
+            color: #999;
+            text-decoration: none;
+            transition: color .2s ease-in;
+            font-size: larger;
+        }
+        
+        .nav a:hover {
+            color: #666;
+            transition: color .2s ease-in;
+        }
+    </style>
+</head>
+
+<body style="background-color:#f9f9f9">
+
+    <div class="container-fluid" style="padding: 10%;">
+
+        <!-- Page Heading -->
+
+
+
+        <div class="card o-hidden border-0 shadow-lg my-5">
+            <div class="card-body p-0">
+                <!-- Nested Row within Card Body -->
+                <div class="row">
+                    <div class="col-lg-3"></div>
+                    <div class="col-lg-6">
+                        <div class="p-5">
+                            <div class="text-center">
+                                <div class="text-center">
+                                    <h1 class=" text-gray-900 mb-4 text mb-5" style="font-family: 'Dancing Script', cursive; ">Vivaha Avahanam | Spin Game</h1>
+                                </div>
+                                <% if (errorMessage) { %>
+                                    <p class=" mb-4 " style="color: crimson; ">
+                                        <%= errorMessage %>
+                                    </p>
+                                    <% } %>
+                                        <div class="text-center">
+                                            <p>Admin login</p>
+                                        </div>
+
+                            </div>
+                            <form action="/controller/login" method="POST" id="userlogin">
+
+                                <div class="form-group row ">
+                                    <div class="col-sm-12 mb-3 mb-sm-0 ">
+                                        <input tabindex="4 " required type="text" name="name" class="form-control form-control-user " id="exampleFirstName " placeholder="User name">
+                                    </div>
+
+                                </div>
+
+                                <div class="form-group ">
+                                    <input tabindex="5" required type="password " name="password" class="form-control form-control-user col-sm-102mb-3 mb-sm-0 " id="exampleInputEmail " placeholder="Enter password">
+                                </div>
+
+
+
+
+
+
+                                <button type="submit" form="userlogin" class="btn btn-primary btn-user btn-block col-sm-12 mb-3 mb-sm-0 ">
+        Login
+      </button>
+                                <hr>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Page Wrapper -->
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js "></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js "></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js "></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js "></script>
+
+    <!-- Page level plugins -->
+    <script src="vendor/datatables/jquery.dataTables.min.js "></script>
+    <script src="vendor/datatables/dataTables.bootstrap4.min.js "></script>
+
+    <!-- Page level custom scripts -->
+    <script src="js/demo/datatables-demo.js "></script>
+
+</body>
+
+</html>
