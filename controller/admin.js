@@ -26,7 +26,8 @@ exports.getlogin = (req, res) => {
 }
 exports.postlogin = (req, res) => {
     User.find().then(docs => {
-        if (!docs) {
+        console.log(docs)
+        if (docs.length==0) {
             const user = new User({
                 name: req.body.name,
                 password:req.body.password,

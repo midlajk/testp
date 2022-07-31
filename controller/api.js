@@ -136,6 +136,8 @@ exports.Prizecheck = async (req, res) => {
 
                 }
            }
+           res.setHeader('Content-Type', 'application/json');
+           res.end(JSON.stringify({ prize: structure.prize,angle:structure.angle}));
        })
 
     }
