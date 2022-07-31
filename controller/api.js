@@ -91,6 +91,8 @@ exports.Prizecheck = async (req, res) => {
     function specialone(){
        const prizeset = [{angle:'45',prize:'better luck'},{angle:'90',prize:'free Ticket'},{angle:'130',prize:'better luck'},{angle:'45',prize:'better luck'},{angle:'90',prize:'free Ticket'},{angle:'90',prize:'free Ticket'},{angle:'45',prize:'better luck'},{angle:'45',prize:'better luck'},{angle:'45',prize:'better luck'},{angle:'270',prize:'Gift voucher'},{angle:'225',prize:'better luck'}];
        const random = Math.floor(Math.random() * prizeset.length);
+       res.setHeader('Content-Type', 'application/json');
+       res.end(JSON.stringify({ prize: structure.prize,angle:structure.angle}));
         console.log(random, prizeset[random]);
        structure=prizeset[random]
        Winner.find({prize:structure.prize}).then(docs=>{
@@ -136,8 +138,7 @@ exports.Prizecheck = async (req, res) => {
 
                 }
            }
-           res.setHeader('Content-Type', 'application/json');
-           res.end(JSON.stringify({ prize: structure.prize,angle:structure.angle}));
+          
        })
 
     }
