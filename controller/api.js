@@ -64,7 +64,6 @@ exports.verifyotp = async (req, res) => {
 exports.Prizecheck = async (req, res) => {
     Place.findOne({ phone: req.body.location }).then(docs => {
         if (docs) {
-            console.log('preent')
 
             Winner.find({location:req.body.location}).then(docs=>{
                 if(docs.length<2){
@@ -72,10 +71,8 @@ exports.Prizecheck = async (req, res) => {
                 
                 }else if(docs.length>=2&&docs.length<4){
                     specialtwo()
-                    console.log('2ndg')
 
                 }else{
-                    console.log('3rdd')
 
                     random()
                 }
@@ -83,7 +80,6 @@ exports.Prizecheck = async (req, res) => {
  
  
         }else{
-            console.log('dgdgd')
             random()
 
         }
@@ -96,7 +92,6 @@ exports.Prizecheck = async (req, res) => {
     function specialone(){
        const prizeset = [{angle:'45',prize:'better luck'},{angle:'90',prize:'free Ticket'},{angle:'130',prize:'better luck'},{angle:'45',prize:'better luck'},{angle:'90',prize:'free Ticket'},{angle:'90',prize:'free Ticket'},{angle:'45',prize:'better luck'},{angle:'45',prize:'better luck'},{angle:'45',prize:'better luck'},{angle:'270',prize:'Gift voucher'},{angle:'225',prize:'better luck'}];
        const random = Math.floor(Math.random() * prizeset.length);
-        console.log(random, prizeset[random]);
        structure=prizeset[random]
        Winner.find({prize:structure.prize}).then(docs=>{
            if(docs){
@@ -150,14 +145,16 @@ exports.Prizecheck = async (req, res) => {
        const prizeset = [{angle:'225',prize:'better luck'},{angle:'90',prize:'free Ticket'},{angle:'45',prize:'better luck'},{angle:'45',prize:'better luck'},{angle:'90',prize:'free Ticket'},{angle:'315',prize:'better luck'},{angle:'270',prize:'Gift voucher'},{angle:'315',prize:'better luck'},{angle:'45',prize:'better luck'},{angle:'270',prize:'Gift voucher'},{angle:'180',prize:'Smart watch'},{angle:'45',prize:'better luck'},{angle:'130',prize:'better luck'},{angle:'270',prize:'Gift voucher'},{angle:'45',prize:'better luck'},{angle:'45',prize:'better luck'},{angle:'90',prize:'free Ticket'},{angle:'45',prize:'better luck'},{angle:'45',prize:'better luck'}];
 
        const random = Math.floor(Math.random() * prizeset.length);
-       console.log(random, prizeset[random]);
+       structure=prizeset[random]
+       res.setHeader('Content-Type', 'application/json');
+           res.end(JSON.stringify({ prize: structure.prize,angle:structure.angle}));
         
    }
    function random(){
        const prizeset = [{angle:'45',prize:'better luck'},{angle:'90',prize:'free Ticket'},{angle:'220',prize:'better luck'},{angle:'90',prize:'free Ticket'},{angle:'90',prize:'free Ticket'},{angle:'42',prize:'better luck'},{angle:'270',prize:'Gift voucher'},{angle:'45',prize:'better luck'},{angle:'310',prize:'better luck'},{angle:'90',prize:'free Ticket'},{angle:'90',prize:'free Ticket'},{angle:'270',prize:'Gift voucher'},{angle:'180',prize:'Smart watch'},{angle:'222',prize:'better luck'},{angle:'45',prize:'better luck'},{angle:'270',prize:'Gift voucher'},{angle:'38',prize:'better luck'},{angle:'215',prize:'better luck'},{angle:'45',prize:'better luck'},{angle:'315',prize:'better luck'},{angle:'45',prize:'better luck'},{angle:'220',prize:'better luck'},{angle:'180',prize:'Smart watch'},{angle:'180',prize:'Smart watch'},{angle:'45',prize:'better luck'},{angle:'42',prize:'better luck'},{angle:'270',prize:'Gift voucher'},{angle:'45',prize:'better luck'},{angle:'270',prize:'Gift voucher'},{angle:'312',prize:'better luck'},{angle:'270',prize:'Gift voucher'},{angle:'45',prize:'better luck'},{angle:'270',prize:'Gift voucher'},{angle:'225',prize:'better luck'},{angle:'90',prize:'free Ticket'},{angle:'90',prize:'free Ticket'},{angle:'90',prize:'free Ticket'},{angle:'120',prize:'better luck'},{angle:'90',prize:'free Ticket'},{angle:'90',prize:'free Ticket'},{angle:'45',prize:'better luck'},{angle:'45',prize:'better luck'},{angle:'90',prize:'free Ticket'},{angle:'90',prize:'free Ticket'},{angle:'90',prize:'free Ticket'},{angle:'90',prize:'free Ticket'},{angle:'45',prize:'better luck'},{angle:'41',prize:'better luck'},{angle:'315',prize:'better luck'},{angle:'90',prize:'free Ticket'},{angle:'45',prize:'better luck'},{angle:'225',prize:'better luck'},{angle:'45',prize:'better luck'},{angle:'125',prize:'better luck'},{angle:'90',prize:'free Ticket'},{angle:'0',prize:'Mobile Phone'},{angle:'130',prize:'better luck'},{angle:'45',prize:'better luck'},{angle:'225',prize:'better luck'},];
 
        const random = Math.floor(Math.random() * prizeset.length);
-       console.log(random, prizeset[random]);
+       structure=prizeset[random]
        res.setHeader('Content-Type', 'application/json');
        res.end(JSON.stringify({ prize: structure.prize,angle:structure.angle}));
 
