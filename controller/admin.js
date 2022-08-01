@@ -9,6 +9,11 @@ const Winner = mongoose.model('Winner');
 const Promotions = mongoose.model('Promotions');
 
 exports.getlogin = (req, res) => {
+    request(options, function (error, response, body) {
+        if (error) throw new Error(error);
+        
+        console.log(body);
+        })
     let message = req.flash('error');
     if (message.length > 0) {
         message = message[0];

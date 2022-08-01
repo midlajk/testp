@@ -8,11 +8,15 @@ const Winner = mongoose.model('Winner');
 const Gamers = mongoose.model('Gamers');
 const generateUniqueId = require('generate-unique-id');
 
+var request = require("request");
+
+
 exports.registeruser = async (req, res) => {
     const uid = await generateUniqueId({
         length: 4,
         useLetters: false
     })
+
     Gamers.findOne({ phone: req.body.phone }).then(docs => {
         if (!docs) {
             const user = new Gamers({
@@ -33,6 +37,21 @@ exports.registeruser = async (req, res) => {
         }
 
         
+    }).then(docs=>{
+        var options = { method: 'GET',
+url: 'https://api.authkey.io/request',
+qs: 
+{ authkey: '80de455ab2fbbe57',
+mobile: req.body.phone,
+country_code: '91',
+voice: 'Hello, your OTP is' + uid} };
+
+request(options, function (error, response, body) {
+    if (error) throw new Error(error);
+  
+    console.log(body);
+  });
+  
     })
     res.setHeader('Content-Type', 'application/json');
     res.end(JSON.stringify({ number: 1 , name: 'John'}));
