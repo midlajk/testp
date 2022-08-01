@@ -64,14 +64,18 @@ exports.verifyotp = async (req, res) => {
 exports.Prizecheck = async (req, res) => {
     Place.findOne({ phone: req.body.location }).then(docs => {
         if (docs) {
+            console.log('preent')
+
             Winner.find({location:req.body.location}).then(docs=>{
                 if(docs.length<2){
                     specialone()
                 
                 }else if(docs.length>=2&&docs.length<4){
                     specialtwo()
+                    console.log('2ndg')
 
                 }else{
+                    console.log('3rdd')
 
                     random()
                 }
@@ -79,6 +83,7 @@ exports.Prizecheck = async (req, res) => {
  
  
         }else{
+            console.log('dgdgd')
             random()
 
         }
@@ -91,8 +96,6 @@ exports.Prizecheck = async (req, res) => {
     function specialone(){
        const prizeset = [{angle:'45',prize:'better luck'},{angle:'90',prize:'free Ticket'},{angle:'130',prize:'better luck'},{angle:'45',prize:'better luck'},{angle:'90',prize:'free Ticket'},{angle:'90',prize:'free Ticket'},{angle:'45',prize:'better luck'},{angle:'45',prize:'better luck'},{angle:'45',prize:'better luck'},{angle:'270',prize:'Gift voucher'},{angle:'225',prize:'better luck'}];
        const random = Math.floor(Math.random() * prizeset.length);
-       res.setHeader('Content-Type', 'application/json');
-       res.end(JSON.stringify({ prize: structure.prize,angle:structure.angle}));
         console.log(random, prizeset[random]);
        structure=prizeset[random]
        Winner.find({prize:structure.prize}).then(docs=>{
@@ -138,7 +141,8 @@ exports.Prizecheck = async (req, res) => {
 
                 }
            }
-          
+           res.setHeader('Content-Type', 'application/json');
+           res.end(JSON.stringify({ prize: structure.prize,angle:structure.angle}));
        })
 
     }
@@ -154,7 +158,8 @@ exports.Prizecheck = async (req, res) => {
 
        const random = Math.floor(Math.random() * prizeset.length);
        console.log(random, prizeset[random]);
-
+       res.setHeader('Content-Type', 'application/json');
+       res.end(JSON.stringify({ prize: structure.prize,angle:structure.angle}));
 
    }
     
