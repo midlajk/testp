@@ -4,11 +4,6 @@ var fs = require('fs');
 const Employees = mongoose.model('Employees');
 const User = mongoose.model('User');
 
-const generateUniqueId = require('generate-unique-id');
-
-var request = require("request");
-
-
 exports.deleteemployee = async (req, res) => {
   
     Employees.findOneAndDelete({_id:req.params.id}).then(()=>{
