@@ -1,0 +1,87 @@
+<%- include('../admininclude/head.ejs') %>
+
+    <div class="container-fluid">
+
+        <!-- Page Heading -->
+
+
+
+        <div class="card o-hidden border-0 shadow-lg">
+            <div class="card-body p-0">
+                <!-- Nested Row within Card Body -->
+                <div class="row">
+                    <div class="col-lg-3"></div>
+                    <div class="col-lg-6">
+                        <div class="p-2">
+                            <div class="text-center">
+                                <div class="text-center">
+                                    <h1 class=" text-gray-900 mb-4 text mb-5" style="font-family: 'Dancing Script', cursive; "></h1>
+                                </div>
+                                <% if (errorMessage) { %>
+                                    <p class=" mb-4 " style="color: crimson; ">
+                                        <%= errorMessage %>
+                                    </p>
+                                    <% } %>
+                                        <div class="text-center">
+                                            <p>Detailes of
+                                                <%=docs.name%>
+                                            </p>
+                                        </div>
+
+                            </div>
+                            <form action="/employee/update" method="POST" id="userlogin">
+
+                                <div class="form-group row ">
+                                    <div class="col-sm-12 mb-3 mb-sm-0 ">
+                                        <label for="">Name</label>
+                                        <input tabindex="4" required type="text" name=" name " class="form-control form-control-user " value="<%=docs.name%>" id="exampleFirstName " placeholder="User
+                                        name">
+                                    </div>
+
+                                </div>
+                                <div class="form-group row ">
+                                    <div class="col-sm-12 mb-3 mb-sm-0 ">
+                                        <label for="">Email</label>
+                                        <input tabindex="4 " required type="text" name="email" class="form-control form-control-user " value="<%=docs.email%>" id="exampleFirstName " placeholder="User Email">
+                                    </div>
+
+                                </div>
+                                <div class="form-group row ">
+                                    <div class="col-sm-12 mb-3 mb-sm-0 ">
+                                        <label for="">Date joined <%=docs.datejoined%></label>
+                                        <input tabindex="4 " required type="date" name="datejoined" class="form-control form-control-user " value="<%=docs.datejoined%>" id="exampleFirstName " placeholder="Date joined">
+                                    </div>
+
+                                </div>
+                                <div class="form-group row ">
+                                    <div class="col-sm-12 mb-3 mb-sm-0 ">
+                                        <label for="">Password</label>
+                                        <input tabindex="4 " required type="text" name="password" class="form-control form-control-user " value="
+                                        <%=docs.password%>" id="exampleFirstName " placeholder="Password">
+                                    </div>
+
+                                </div>
+
+                                <% if(session.role=='admin'){ %>
+                                    <input type="hidden" value="<%=docs._id%>" name="id">
+
+
+
+
+                                    <button type="submit" form="userlogin" class="btn btn-primary btn-user btn-block col-sm-12 mb-3 mb-sm-0 ">
+                          
+        Update
+      </button>
+                                    <% } %>
+                            </form>
+                            <hr>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Page Wrapper -->
+    <!-- Bootstrap core JavaScript-->
+    <%- include('../admininclude/end.ejs') %>

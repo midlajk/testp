@@ -5,6 +5,7 @@ var Schema = mongoose.Schema;
     var user = new Schema({
 
         name: String,
+        role: String,
         password:String,
        
         
@@ -15,58 +16,17 @@ var Schema = mongoose.Schema;
         mongoose.model('User', user);
     module.exports = User;
 
-    var gamers = new Schema({
+    var employees = new Schema({
 
-        phone: String,
-        location:String,
-        prizewon:String,
-        spindate:Date,
-        otp:{
-            number:Number,
-            creationdate:Date
-        }
+        name: String,
+        email:String,
+        datejoined:String,
+        password:String,
         
     
     });
     
-    var Gamers =
-        mongoose.model('Gamers', gamers);
-    module.exports = Gamers; 
+    var Employees =
+        mongoose.model('Employees', employees);
+    module.exports = Employees; 
     
-    var places = new Schema({
-
-        place: String,
-        link:String,
-        
-    });
-    
-    var Place =
-        mongoose.model('Place', places);
-    module.exports = Place;
-
-    var winner = new Schema({
-
-        prize: String,
-        location:String,
-        phone:String,
-        name:String,
-        address:String,
-        drawdate:Date,
-
-        
-    });
-    
-    var Winner =
-        mongoose.model('Winner', winner);
-    module.exports = Winner;
-
-    var promotions = new Schema({
-
-        message: String,
-        date:Date,
-        
-    });
-    
-    var Promotions =
-        mongoose.model('Promotions', promotions);
-    module.exports = Promotions;

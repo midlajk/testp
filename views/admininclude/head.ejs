@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>CORPORA</title>
+    <title>Test</title>
 
     <!-- Custom fonts for this template -->
     <link href="/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -46,9 +46,9 @@
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/controller/listofusers">
                 <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-fw fa-gamepad"></i>
+
                 </div>
-                <div class="sidebar-brand-text mx-3">SPIN GAME <sup></sup></div>
+                <div class="sidebar-brand-text mx-3">Test<sup></sup></div>
             </a>
 
             <!-- Divider -->
@@ -58,36 +58,14 @@
             <li class="nav-item <%= path === '/users' ? 'active' : '' %>">
                 <a class="nav-link " href="/controller/listofusers">
                     <i class="fas fa-fw fa-user"></i>
-                    <span>Users</span></a>
+                    <span>List of employees</span></a>
             </li>
-
-            <li class="nav-item <%= path === '/links' ? 'active' : '' %>">
-                <a class="nav-link" href="/controller/link">
-                    <i class="fas fa-fw fa-link"></i>
-                    <span>Links</span></a>
-            </li>
-            <li class="nav-item <%= path === '/winners' ? 'active' : '' %>">
-                <a class="nav-link" href="/controller/winners">
-                    <i class="fas fa-fw fa-gift"></i>
-                    <span>Winners</span></a>
-            </li>
-            <li class="nav-item <%= path === '/sendpromotion' ? 'active' : '' %>">
-                <a class="nav-link" href="/controller/sendmessage">
-                    <i class="fas fa-fw fa-calendar"></i>
-                    <span>Send Promotions</span></a>
-            </li>
-
-            <li class="nav-item <%= path === '/previousmessage' ? 'active' : '' %>">
-                <a class="nav-link" href="/controller/previousmessage">
-                    <i class="fas fa-fw fa-inbox"></i>
-                    <span>Previous Message</span></a>
-            </li>
-
             <li class="nav-item <%= path === '/manageprofile' ? 'active' : '' %>">
-                <a class="nav-link" href="/controller/manageprofile">
+                <a class="nav-link" href="<%= session.role === 'employee'? '/employee/'+session._id: '/controller/manageprofile' %>">
                     <i class="fas fa-fw fa-user-secret"></i>
                     <span>Manage Profile</span></a>
             </li>
+
             <li class="nav-item">
                 <a class="nav-link" href="/controller/logout">
                     <i class="fa fa-backward"></i>
