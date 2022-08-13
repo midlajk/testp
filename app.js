@@ -15,7 +15,7 @@ const multer = require('multer');
 require('dotenv').config();
 
 var app = express();
-const url = 'mongodb+srv://admin:admin123@cluster0.iqrdbul.mongodb.net/?retryWrites=true&w=majority'
+const url = 'mongodb://127.0.0.1:27017'
 
 
 const store = new MongoDBStore({

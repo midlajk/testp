@@ -53,26 +53,29 @@
                                     </div>
 
                                 </div>
-                                <div class="form-group row ">
-                                    <div class="col-sm-12 mb-3 mb-sm-0 ">
-                                        <label for="">Password</label>
-                                        <input tabindex="4 " required type="text" name="password" class="form-control form-control-user " value="
+                                <% 
+                                if(session.role=='admin' | session._id.toString() == docs._id.toString()){ %>
+                                    <div class="form-group row ">
+                                        <div class="col-sm-12 mb-3 mb-sm-0 ">
+                                            <label for="">Password</label>
+                                            <input tabindex="4 " required type="text" name="password" class="form-control form-control-user " value="
                                         <%=docs.password%>" id="exampleFirstName " placeholder="Password">
+                                        </div>
+
                                     </div>
+                                    <% } %>
 
-                                </div>
-
-                                <% if(session.role=='admin'){ %>
-                                    <input type="hidden" value="<%=docs._id%>" name="id">
-
+                                        <% if(session.role=='admin'){ %>
+                                            <input type="hidden" value="<%=docs._id%>" name="id">
 
 
 
-                                    <button type="submit" form="userlogin" class="btn btn-primary btn-user btn-block col-sm-12 mb-3 mb-sm-0 ">
+
+                                            <button type="submit" form="userlogin" class="btn btn-primary btn-user btn-block col-sm-12 mb-3 mb-sm-0 ">
                           
         Update
       </button>
-                                    <% } %>
+                                            <% } %>
                             </form>
                             <hr>
 
