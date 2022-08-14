@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 var fs = require('fs');
 const Employees = mongoose.model('Employees');
 const User = mongoose.model('User');
-
+//////Delete employeee data and login ////////////
 exports.deleteemployee = async (req, res) => {
   
     Employees.findOneAndDelete({_id:req.params.id}).then(()=>{
@@ -15,6 +15,11 @@ exports.deleteemployee = async (req, res) => {
     })
    
 }
+//////Delete employeee data and login ^^^^^^ ////////////
+
+
+
+////// View employee details  ////////////
 
 exports.viewemployee = async (req, res) => {
     let message = req.flash('error');
@@ -35,6 +40,9 @@ exports.viewemployee = async (req, res) => {
     })
    
 }
+
+////// Update employee details  ////////////
+
 exports.updateemployee = async (req, res) => {
   console.log(req.body.id)
     Employees.findByIdAndUpdate(req.body.id).then((docs)=>{

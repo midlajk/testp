@@ -11,5 +11,5 @@ router.get('/listofusers',islogged, adminController.listofusers);
 router.post('/link',isauth, adminController.postlink);
 router.get('/manageprofile',isauth, adminController.manageprofile);
 router.post('/manageprofile',isauth, adminController.postmanageprofile);
-router.get('/logout', adminController.logout);
+router.get('/logout',islogged, adminController.logout);
 module.exports = router;

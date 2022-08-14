@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 // Connect to the db
 
 
-const url = 'mongodb://127.0.0.1:27017'
+const url = 'mongodb://127.0.0.1:27017/challengedb'
 //Connect methode of mongoose
 mongoose.connect(url,  err => {
     if(err) throw err;

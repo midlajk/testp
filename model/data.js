@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 var Schema = mongoose.Schema;
+///////////// Login user Employ,Super admin schema /////////
 
 
     var user = new Schema({
@@ -16,6 +17,8 @@ var Schema = mongoose.Schema;
         mongoose.model('User', user);
     module.exports = User;
 
+
+///////////// Emplolee schema /////////
     var employees = new Schema({
 
         name: String,
